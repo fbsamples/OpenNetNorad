@@ -1,0 +1,12 @@
+[Unit]
+Description=uWSGI instance to serve pong_logger
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/OpenNetNorad/pong_logger
+ExecStart=/usr/local/bin/uwsgi --plugin python3 --ini main.ini
+
+[Install]
+WantedBy=multi-user.target

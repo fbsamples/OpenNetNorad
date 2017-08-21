@@ -1,0 +1,15 @@
+[Unit]
+Description=Upongd daemon to manage upong
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/upong
+PIDFile=/var/run/upongd.pid
+ExecStartPre=-/usr/bin/wget -O - --post-data=region=MY_PONG_REGION&cluster=MY_PONG_CLUSTER&rack=MY_PONG_RACK http://MASTER_WEBSERVER_HOST:5000/servers/create
+ExecStopPost=-/usr/bin/wget -O - --post-data=is_active=0 http://MASTER_WEBSERVER_HOST:5000/servers/update
+Type=simple
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target
