@@ -37,7 +37,7 @@ Install pong_logger webservice
     
 - Clone the pong_logger project
     
-    `cd /var/www/ && git clone https://github.com/drodrigueza/OpenNetnorad`
+    `cd /var/www/ && git clone https://github.com/fbsamples/OpenNetNorad`
 
 - Copy the nginx config file of the web system to '/etc/nginx/sites-enabled' and **edit server_name** to be the IP address of your server/instance or FQDN
     
